@@ -40,10 +40,10 @@ Page({
     async initAllData() {
         var themeA = await Theme.getHomeLocationA();
         var bannerB = await Banner.getHomeLocationB();
-        console.log(data);
-        console.log(banner);
+        console.log(themeA);
+        console.log(bannerB);
         this.setData({
-            themeA: data[0],
+            themeA: themeA[0],
             bannerB: bannerB
         });
     },
