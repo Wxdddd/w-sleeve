@@ -8,5 +8,9 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "w-grid": "/miniprogram_npm/lin-ui/grid/index",
+    "w-grid-item": "/miniprogram_npm/lin-ui/grid-item/index"
+  }
 }

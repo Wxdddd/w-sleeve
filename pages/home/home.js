@@ -2,6 +2,7 @@
 // 引入config
 import {Theme} from "../../model/theme";
 import {Banner} from "../../model/banner";
+import {Category} from "../../model/category";
 
 Page({
 
@@ -10,7 +11,8 @@ Page({
      */
     data: {
         themeA: null,
-        bannerB: null
+        bannerB: null,
+        grid: []
     },
 
     /**
@@ -19,6 +21,7 @@ Page({
     onLoad: async function (options) {
 
         this.initAllData();
+
         // let that = this;
         // wx.request({
         //     url: `${config.apiBaseUrl}theme/by/names`,
@@ -40,11 +43,12 @@ Page({
     async initAllData() {
         var themeA = await Theme.getHomeLocationA();
         var bannerB = await Banner.getHomeLocationB();
-        console.log(themeA);
-        console.log(bannerB);
+        var grid = await Category.getGridCategory();
+        console.log(grid);
         this.setData({
             themeA: themeA[0],
-            bannerB: bannerB
+            bannerB: bannerB,
+            grid: grid
         });
     },
 

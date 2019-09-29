@@ -13,7 +13,7 @@ class Theme {
         return await Http.request({
             url: `theme/by/names`,
             data: {
-                name: config.home.locationA
+                names: config.home.locationA
             }
         });
     }
