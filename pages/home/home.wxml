@@ -1,8 +1,8 @@
 <!--pages/home/home.wxml-->
-<view>
+<view class="container">
 
     <image src="{{themeA.entrance_img}}" 
-    style="width:100%; height:{{themeAHeigth}}rpx" bindload="ithemeALoad"></image>
+    style="width:100%; height:{{themeAHeigth}}rpx; display:flex" bindload="ithemeALoad"></image>
 
     <swiper class="swiper" indicator-dots autoplay indicator-active-color="#157658">
         <block>
@@ -14,5 +14,5 @@
 
     <category-grid-item grid="{{grid}}"></category-grid-item>
 
-    <image class="activity" src="{{activity.entrance_img}}"></image>
+    <image class="activity" src="{{activityD.entrance_img}}"></image>
 </view>

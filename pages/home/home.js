@@ -14,6 +14,7 @@ Page({
         themeA: null,
         bannerB: null,
         grid: [],
+        activityD: null,
         themeAWidth: 0,
         themeAHeigth: 0
     },
@@ -53,7 +54,7 @@ Page({
             themeA: themeA[0],
             bannerB: bannerB,
             grid: grid,
-            activity: activity
+            activityD: activity
         });
     },
 
