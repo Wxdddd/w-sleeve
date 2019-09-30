@@ -3,6 +3,7 @@
 import {Theme} from "../../model/theme";
 import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
+import {Activity} from "../../model/activity";
 
 Page({
 
@@ -12,7 +13,9 @@ Page({
     data: {
         themeA: null,
         bannerB: null,
-        grid: []
+        grid: [],
+        themeAWidth: 0,
+        themeAHeigth: 0
     },
 
     /**
@@ -43,13 +46,25 @@ Page({
     async initAllData() {
         var themeA = await Theme.getHomeLocationA();
         var bannerB = await Banner.getHomeLocationB();
-        var grid = await Category.getGridCategory();
-        console.log(grid);
+        var grid = await Category.getHomeLocationC();
+        var activity = await Activity.getHomeLocationD();
+        //themeA[0].entrance_img = "/images/3.jpg"
         this.setData({
             themeA: themeA[0],
             bannerB: bannerB,
-            grid: grid
+            grid: grid,
+            activity: activity
         });
+    },
+
+    ithemeALoad(event) {
+        //var width = event.detail.width;
+        var height = event.detail.height;
+        this.setData({
+          // themeAWidth: width,
+          themeAHeigth: height
+        })
+
     },
 
     /**

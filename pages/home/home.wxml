@@ -1,14 +1,18 @@
 <!--pages/home/home.wxml-->
 <view>
-    <image class="top-theme" src = "{{themeA.entrance_img}}"></image>
+
+    <image src="{{themeA.entrance_img}}" 
+    style="width:100%; height:{{themeAHeigth}}rpx" bindload="ithemeALoad"></image>
+
     <swiper class="swiper" indicator-dots autoplay indicator-active-color="#157658">
-    <block>
-        <swiper-item wx:for="{{bannerB.items}}" wx:item="item">
-          <image class="swiper" src="{{item.img}}"></image>
-        </swiper-item>
-    </block>
+        <block>
+            <swiper-item wx:for="{{bannerB.items}}" wx:item="item">
+                <image class="swiper" src="{{item.img}}"></image>
+            </swiper-item>
+        </block>
     </swiper>
 
     <category-grid-item grid="{{grid}}"></category-grid-item>
 
+    <image class="activity" src="{{activity.entrance_img}}"></image>
 </view>

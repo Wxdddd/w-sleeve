@@ -4,7 +4,8 @@ const config = {
     apiBaseUrl: "http://se.7yue.pro/v1/",
     home: {
         locationA: "t-1",
-        locationB: "b-1"
+        locationB: "b-1",
+        locationC: "a-2"
     }
 }
 
