@@ -45,13 +45,19 @@ Page({
     },
 
     async initAllData() {
-        var themeA = await Theme.getHomeLocationA();
-        var bannerB = await Banner.getHomeLocationB();
-        var grid = await Category.getHomeLocationC();
-        var activity = await Activity.getHomeLocationD();
+        const themes = await Theme.getAllThemes();
+        console.log(themes)
+        const themeA = themes.find(t=>t.name === "t-1");
+        const themeE = themes.find(t=>t.name === "t-2");
+
+        //const themeA = await Theme.getHomeLocationA();
+        const bannerB = await Banner.getHomeLocationB();
+        const grid = await Category.getHomeLocationC();
+        const activity = await Activity.getHomeLocationD();
         //themeA[0].entrance_img = "/images/3.jpg"
+
         this.setData({
-            themeA: themeA[0],
+            themeA: themeA,
             bannerB: bannerB,
             grid: grid,
             activityD: activity

@@ -5,7 +5,10 @@ const config = {
     home: {
         locationA: "t-1",
         locationB: "b-1",
-        locationC: "a-2"
+        locationC: "a-2",
+        locationE: "t-2",
+        locationF: "t-3",
+        locationH: "t-4"
     }
 }
 
