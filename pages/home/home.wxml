@@ -1,8 +1,9 @@
 <!--pages/home/home.wxml-->
 <view class="container">
 
-    <image src="{{themeA.entrance_img}}" 
-    style="width:100%; height:{{themeAHeigth}}rpx; display:flex" bindload="ithemeALoad"></image>
+    <!--<image src="{{themeA.entrance_img}}" -->
+    <!--style="width:100%; height:{{themeAHeigth}}rpx; display:flex" bindload="ithemeALoad"></image>-->
+    <image class="top-theme" src = "{{themeA.entrance_img}}"></image>
 
     <swiper class="swiper" indicator-dots autoplay indicator-active-color="#157658">
         <block>

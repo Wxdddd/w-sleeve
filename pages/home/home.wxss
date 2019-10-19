@@ -4,8 +4,8 @@
 } */
 
 .top-theme {
-    /* width: 100%; */
-    /* height: 260rpx; */
+    width: 100%;
+    height: 260rpx;
     display: flex;
 }
 

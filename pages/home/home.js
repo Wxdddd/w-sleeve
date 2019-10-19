@@ -12,6 +12,7 @@ Page({
      */
     data: {
         themeA: null,
+        themeE: null,
         bannerB: null,
         grid: [],
         activityD: null,
@@ -23,47 +24,32 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: async function (options) {
-
         this.initAllData();
-
-        // let that = this;
-        // wx.request({
-        //     url: `${config.apiBaseUrl}theme/by/names`,
-        //     method: "GET",
-        //     data: {
-        //       names: "t-1"
-        //     },
-        //     header: {
-        //       "appKey": config.appKey
-        //     },
-        //     success: res=> {
-        //       this .setData({
-        //           topTheme: res.data[0]
-        //       });
-        //     }
-        // })
     },
 
     async initAllData() {
-        const themes = await Theme.getAllThemes();
-        console.log(themes)
-        const themeA = themes.find(t=>t.name === "t-1");
-        const themeE = themes.find(t=>t.name === "t-2");
+        const theme = new Theme();
+        await theme.getAllThemes();
+        const themeA = theme.getHomeLocationA();
+        const themeE = theme.getHomeLocationE();
 
-        //const themeA = await Theme.getHomeLocationA();
         const bannerB = await Banner.getHomeLocationB();
         const grid = await Category.getHomeLocationC();
-        const activity = await Activity.getHomeLocationD();
-        //themeA[0].entrance_img = "/images/3.jpg"
+        const activityD = await Activity.getHomeLocationD();
 
         this.setData({
-            themeA: themeA,
-            bannerB: bannerB,
-            grid: grid,
-            activityD: activity
+            themeA,
+            themeE,
+            bannerB,
+            grid,
+            activityD
         });
     },
 
+    /**
+     * 重设图片高度
+     * @param event
+     */
     ithemeALoad(event) {
         //var width = event.detail.width;
         var height = event.detail.height;

@@ -5,26 +5,31 @@ import {config} from "../config/config";
 
 class Theme {
 
+    themes = []
+
+    /**
+     * 获取首页E
+     * @returns {Promise<*>}
+     */
+    getHomeLocationE() {
+        return this.themes.find(t => t.name === `${config.home.locationE}`)
+    }
+
     /**
      * 获取首页顶部图片
      * @returns {Promise<void>}
      */
-    static async getHomeLocationA() {
-        return await Http.request({
-            url: `theme/by/names`,
-            data: {
-                names: config.home.locationA
-            }
-        });
+    getHomeLocationA() {
+        return this.themes.find(t => t.name === `${config.home.locationA}`)
     }
 
     /**
      * 根据names 获取所有主题
      * @returns {Promise<void>}
      */
-    static async getAllThemes() {
+    async getAllThemes() {
         const names = `${config.home.locationA},${config.home.locationE},${config.home.locationF},${config.home.locationH}`
-        return await Http.request({
+        this.themes = await Http.request({
             url: `theme/by/names`,
             data: {
                 names
