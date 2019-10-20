@@ -4,20 +4,28 @@
 } */
 
 .top-theme {
-    width: 100%;
-    height: 260rpx;
-    display: flex;
+  width: 100%;
+  height: 260rpx;
+  display: flex;
 }
 
 .swiper {
-    width: 100%;
-    height: 320rpx;
+  width: 100%;
+  height: 320rpx;
 }
 
 .activity {
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-    width: 100%;
-    height: 310rpx;
-    display: flex;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  height: 310rpx;
+  display: flex;
+}
+
+.quality {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  height: 880rpx;
+  display: flex;
 }

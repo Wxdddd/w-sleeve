@@ -11,14 +11,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        themeA: null,
-        themeE: null,
-        themeESpu: [],
-        bannerB: null,
-        grid: [],
-        activityD: null,
-        themeAWidth: 0,
-        themeAHeigth: 0
+      themeA: null,
+      themeE: null,
+      themeF: null,
+      themeESpu: [],
+      bannerB: null,
+      grid: [],
+      activityD: null,
+      themeAWidth: 0,
+      themeAHeigth: 0
     },
 
     /**
@@ -29,30 +30,32 @@ Page({
     },
 
     async initAllData() {
-        const theme = new Theme();
-        await theme.getAllThemes();
-        const themeA = await theme.getHomeLocationA();
-        const themeE = await theme.getHomeLocationE();
-        let themeESpu = [];
-        if (themeE.online) {
-          const data = await Theme.getHomeLocationESpu();
-          if (data) {
-            themeESpu = data.spu_list.slice(0,8)
-          }
+      const theme = new Theme();
+      await theme.getAllThemes();
+      const themeA = await theme.getHomeLocationA();
+      const themeE = await theme.getHomeLocationE();
+      const themeF = await theme.getHomeLocationF();
+      let themeESpu = [];
+      if (themeE.online) {
+        const data = await Theme.getHomeLocationESpu();
+        if (data) {
+          themeESpu = data.spu_list.slice(0,8)
         }
-        console.log(themeESpu)
-        const bannerB = await Banner.getHomeLocationB();
-        const grid = await Category.getHomeLocationC();
-        const activityD = await Activity.getHomeLocationD();
+      }
+      console.log(themeESpu)
+      const bannerB = await Banner.getHomeLocationB();
+      const grid = await Category.getHomeLocationC();
+      const activityD = await Activity.getHomeLocationD();
 
-        this.setData({
-            themeA,
-            themeE,
-            themeESpu,
-            bannerB,
-            grid,
-            activityD
-        });
+      this.setData({
+        themeA,
+        themeE,
+        themeF,
+        themeESpu,
+        bannerB,
+        grid,
+        activityD
+      });
     },
 
     /**
