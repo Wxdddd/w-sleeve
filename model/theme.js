@@ -36,6 +36,16 @@ class Theme {
             }
         })
     }
+
+    static getHomeLocationESpu() {
+         return Theme.getThemeSpuByName(`${config.home.locationE}`);
+    }
+
+    static getThemeSpuByName(name) {
+        return this.themes = Http.request({
+        url: `theme/name/${name}/with_spu`,
+      })
+    }
 }
 
 // 导出

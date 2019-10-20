@@ -13,7 +13,13 @@
         </block>
     </swiper>
 
-    <category-grid-item grid="{{grid}}"></category-grid-item>
+    <w-category-grid-item grid="{{grid}}"></w-category-grid-item>
 
     <image class="activity" src="{{activityD.entrance_img}}"></image>
+
+    <w-spu-scroll theme="{{themeE}}"
+                  spu-list="{{themeESpu}}"
+                  wx:if="{{themeE.online}}">
+
+    </w-spu-scroll>
 </view>

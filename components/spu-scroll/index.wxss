@@ -1,0 +1,50 @@
+/* components/spu-scroll/index.wxss */
+.container {
+  /*核模型 当宽度超出100%出现滚动条时使用*/
+  box-sizing: border-box;
+  width: 100%;
+  padding: 42rpx 0rpx 34rpx 28rpx;
+  background-color: #ffffff;
+}
+
+.title {
+  width: 694rpx;
+  height: 90rpx;
+}
+
+.price-unit {
+  font-size: 26rpx !important;
+}
+
+.price-value {
+  font-size:24rpx !important;
+}
+
+.spu-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.spu-container {
+  margin-right: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-view {
+  margin-top: 28rpx;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+}
+
+.spu-text {
+  font-size: 20rpx;
+  color: #666666;
+  margin-top: 20rpx;
+}
+
+

@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/home/home"
+    "pages/home/home",
+    "components/spu-scroll/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,6 +12,7 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "w-grid": "/miniprogram_npm/lin-ui/grid/index",
-    "w-grid-item": "/miniprogram_npm/lin-ui/grid-item/index"
+    "w-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
+    "w-price": "/miniprogram_npm/lin-ui/price/index"
   }
 }
