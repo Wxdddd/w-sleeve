@@ -24,4 +24,6 @@
     </w-spu-scroll>
 
     <image class="quality" src="{{themeF.entrance_img}}"></image>
+
+    <w-hot-list banner="{{bannerG}}"></w-hot-list>
 </view>

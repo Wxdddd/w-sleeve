@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40rpx;
+  background-color: #ffffff;
+}
+
+.title {
+  width: 690rpx;
+  height: 90rpx;
+}
+
+.left {
+  display: flex;
+  width: 346rpx;
+  height: 522rpx;
+}
+
+.inner-container {
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-size {
+  width: 400rpx;
+  height: 260rpx;
+  display: flex;
+}
+
+
