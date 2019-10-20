@@ -1,7 +1,10 @@
 <view class="container">
     <image class="title" src="{{banner.img}}"></image>
     <view class="inner-container">
-        <image class="left" src="{{left.img}}"></image>
+        <!--点击态设置 3ms-->
+        <view hover-class="rect-hover" hover-stay-time="300">
+            <image class="left" src="{{left.img}}"></image>
+        </view>
         <view class="right-container">
             <image class="right-size" src="{{rightTop.img}}"></image>
             <image class="right-size" src="{{rightBottom.img}}"></image>
