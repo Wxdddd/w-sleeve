@@ -8,6 +8,14 @@ class Theme {
     themes = []
 
   /**
+   * 获取首页H
+   * @returns {Promise<*>}
+   */
+  getHomeLocationH() {
+    return this.themes.find(t => t.name === `${config.home.locationH}`)
+  }
+
+  /**
    * 获取首页F
    * @returns {Promise<*>}
    */

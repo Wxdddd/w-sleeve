@@ -14,6 +14,7 @@ Page({
     themeA: null,
     themeE: null,
     themeF: null,
+    themeH: null,
     themeESpu: [],
     bannerB: null,
     bannerG: null,
@@ -36,6 +37,7 @@ Page({
     const themeA = theme.getHomeLocationA();
     const themeE = theme.getHomeLocationE();
     const themeF = theme.getHomeLocationF();
+    const themeH = theme.getHomeLocationH();
     let themeESpu = [];
     if (themeE.online) {
       const data = await Theme.getHomeLocationESpu();
@@ -52,6 +54,7 @@ Page({
       themeA,
       themeE,
       themeF,
+      themeH,
       themeESpu,
       bannerB,
       bannerG,
