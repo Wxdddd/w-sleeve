@@ -1,3 +1,4 @@
+import {Http} from "./http";
 
 class Paging {
 
@@ -6,8 +7,8 @@ class Paging {
   req;
   locker = false;
   url;
-  moreData;
-  accumulator;
+  moreData = true;
+  accumulator = [];
 
 
 
@@ -17,7 +18,7 @@ class Paging {
    * @param start 从第几条开始
    * @param count 每页条数
    */
-  constructor(req, start, count) {
+  constructor(req, count=10, start=0) {
     this.start = start;
     this.count = count;
     this.req = req;
@@ -31,6 +32,7 @@ class Paging {
     // getLocker
     // request
     // releseLocker
+
     if (!this.moreData) { //判断是否有更多数据
       return;
     }
@@ -38,6 +40,7 @@ class Paging {
       return;
     }
     const data = await this._actualGetData();
+
     this._releseLocker();
     return data;
   }
@@ -49,6 +52,7 @@ class Paging {
    */
   async _actualGetData() {
     const req = this._getCurrentReq();
+    console.log(req)
     let paging = await Http.request(req);
     if (!paging) {  //获取失败
       return null;
