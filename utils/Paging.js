@@ -85,7 +85,7 @@ class Paging {
   _getCurrentReq() {
     let url = this.url
     const params = `start=${this.start}&count=${this.count}`
-    if (url.indexOf('?') !== -1) {
+    if (url.includes('?')) {
       url += '&' + params;
     } else {
       url += '?' + params;
