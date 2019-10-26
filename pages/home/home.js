@@ -4,6 +4,7 @@ import {Theme} from "../../model/theme";
 import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
 import {Activity} from "../../model/activity";
+import {SpuPaging} from "../../model/spu_paging";
 
 Page({
 
@@ -20,8 +21,7 @@ Page({
     bannerG: null,
     grid: [],
     activityD: null,
-    themeAWidth: 0,
-    themeAHeigth: 0
+    supPaging: null
   },
 
   /**
@@ -29,6 +29,7 @@ Page({
    */
   onLoad: async function (options) {
     this.initAllData();
+    this.initBottomSpuList();
   },
 
   async initAllData() {
@@ -63,6 +64,28 @@ Page({
     });
   },
 
+  async initBottomSpuList() {
+    const paging = SpuPaging.getLatestPaging();
+    this.data.supPaging = paging;
+    const data = await paging.getMoreData();
+    if (!data) {
+      return;
+    }
+    // data 数组, refresh 清空元素, success 返回成功
+    wx.lin.renderWaterFlow(data.items)
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: async function () {
+    const data = await this.data.supPaging.getMoreData();
+    if (!data) {
+      return
+    }
+    wx.lin.renderWaterFlow(data.items)
+  },
+
   /**
    * 重设图片高度
    * @param event
@@ -70,6 +93,7 @@ Page({
   ithemeALoad(event) {
     //var width = event.detail.width;
     var height = event.detail.height;
+    // 保持比例 width/height = 340/h
     this.setData({
       // themeAWidth: width,
       themeAHeigth: height
@@ -77,52 +101,4 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

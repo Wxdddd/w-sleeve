@@ -2,6 +2,7 @@
   "usingComponents": {
     "w-category-grid-item": "/components/category-grid/index",
     "w-spu-scroll": "/components/spu-scroll/index",
-    "w-hot-list": "/components/hot-list/index"
+    "w-hot-list": "/components/hot-list/index",
+    "w-water-flow": "/miniprogram_npm/lin-ui/water-flow/index"
   }
 }

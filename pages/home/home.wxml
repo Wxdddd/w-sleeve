@@ -28,4 +28,9 @@
     <w-hot-list banner="{{bannerG}}"></w-hot-list>
 
     <image class="fashion" src="{{themeH.entrance_img}}"></image>
+
+    <view class="spu-bottom">
+        <image class="title-spu-bottom" src="/imgs/home/title@interest.png"></image>
+        <w-water-flow generic:l-water-flow-item="w-spu-preview"></w-water-flow>
+    </view>
 </view>

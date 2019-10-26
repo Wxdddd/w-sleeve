@@ -1,0 +1,41 @@
+
+/**
+ * 主价格
+ * @param price
+ */
+function mainPrice(price,discountPrice) {
+  if (!discountPrice) {
+    return {
+      price: price,
+      display: true
+    };
+  } else {
+    return {
+      price: discountPrice,
+      display: false
+    }
+  }
+}
+
+/**
+ * 划线价格
+ * @param price
+ */
+function slashedPrice(price,discountPrice) {
+  if (discountPrice) {
+    return {
+      price:price,
+      display: true
+    };
+  } else {
+    return {
+      display: false,
+      price: null
+    };
+  }
+}
+
+module.exports = {
+  mainPrice: mainPrice,
+  slashedPrice: slashedPrice
+}
