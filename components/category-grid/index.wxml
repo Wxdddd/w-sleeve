@@ -1,6 +1,6 @@
 <view class="container">
   <w-grid l-class="container-inner">
-      <block wx:for="{{grid}}" wx:item="item">
+      <block wx:for="{{grid}}" wx:item="item" wx:key="{{index}}">
           <w-grid-item key="{{index}}" slot="{{index}}">
               <view class="grid-item">
                   <image class="img" src="{{item.img}}"></image>

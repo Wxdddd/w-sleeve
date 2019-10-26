@@ -19,15 +19,16 @@ Component({
    */
   observers: {
     data:function (data) {
-      if (data) {
+      if (!data) {
         return;
       }
       if (!data.tags) {
         return
       }
       const tags = data.tags.split("$");
+      console.log(tags);
       this.setData({
-        tags
+        tags: tags
       });
     }
   },

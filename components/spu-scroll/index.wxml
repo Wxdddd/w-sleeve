@@ -3,7 +3,7 @@
     <image class="title" src="{{theme.title_img}}"></image>
     <scroll-view class="scroll-view" scroll-x>
         <view class="inner">
-            <block wx:for="{{spuList}}" wx:item="item">
+            <block wx:for="{{spuList}}" wx:item="item" wx:key="{{index}}">
                 <view class="spu-container">
                     <image class="spu-img" src="{{item.img}}"></image>
                     <text class="spu-text">{{item.title.length>=8?s.substring(item.title,0,7)+'...' : item.title}}</text>

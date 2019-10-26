@@ -7,7 +7,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
@@ -15,6 +16,7 @@
     "w-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "w-price": "/miniprogram_npm/lin-ui/price/index",
     "w-spu-preview": "/components/spu-preview/index",
-    "w-tag": "/miniprogram_npm/lin-ui/tag/index"
+    "w-tag": "/miniprogram_npm/lin-ui/tag/index",
+    "w-loadmore": "/miniprogram_npm/lin-ui/loadmore/index"
   }
 }
