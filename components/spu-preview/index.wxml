@@ -1,7 +1,8 @@
 
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
 
-<view class="container">
+<!-- data固定id任意取值 -->
+<view data-pid="{{data.id}}" bind:tap="onItemTap" class="container">
     <image mode="widthFix" class="img" src="{{data.img}}"></image>
     <view class="content-container">
         <text class="title">{{data.title}}</text>
