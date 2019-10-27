@@ -1,4 +1,9 @@
 <view class="container">
-    <view class="title"></view>
-    <view></view>
+    <view class="title">{{fence.title}}</view>
+    <view class="row-container">
+        <block wx:for="{{fence.cells}}" wx:key="{{index}}">
+            <w-cell class="cell" cell="{{item}}"></w-cell>
+        </block>
+        <view class="hr"></view>
+    </view>
 </view>

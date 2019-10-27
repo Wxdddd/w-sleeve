@@ -9,6 +9,7 @@ class FenceGroup {
 
   spu;
   skuList = [];
+  fences = [];
 
   /**
    * 构造器
@@ -55,7 +56,8 @@ class FenceGroup {
       const fence = new Fence(r);
       fence.init();
       fences.push(fence);
-    })
+    });
+    this.fences = fences;
     console.log(fences)
   }
 

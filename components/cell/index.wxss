@@ -1,0 +1,14 @@
+
+.container {
+  border: 2rpx solid #333333;
+}
+
+.inner-container {
+  height: 60rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+}
