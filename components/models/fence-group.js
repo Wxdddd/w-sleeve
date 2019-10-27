@@ -27,7 +27,7 @@ class FenceGroup {
    * 青芒色 圣斗士 大号L
    * 橘黄色 七龙珠 小号S
    */
-  initFences() {
+  initFences1() {
     const matrix = this._createMatrix(this.skuList);
     const fences = [];
     let currentJ = -1;  //当前列号
@@ -35,7 +35,7 @@ class FenceGroup {
       if (currentJ !== j) {  // 如果当前列号不等于j
         currentJ = j;
         // new一个新的Fence 并使fences[currentJ]赋值为一个新的fence对象
-        fences[currentJ] = this._createFeance(element);
+        fences[currentJ] = this._createFeance();
       }
       // 将当前规格值push到fence对象
       fences[currentJ].pushValueTitle(element.value);
@@ -45,12 +45,27 @@ class FenceGroup {
   }
 
   /**
+   * 矩阵转置方式
+   */
+  initFences() {
+    const matrix = this._createMatrix(this.skuList);
+    const fences = [];
+    const AT = matrix.transpose();
+    AT.forEach(r => {
+      const fence = new Fence(r);
+      fence.init();
+      fences.push(fence);
+    })
+    console.log(fences)
+  }
+
+  /**
    * 创建fence对象
    * @param element
    * @returns {Fence}
    * @private
    */
-  _createFeance(element) {
+  _createFeance() {
     const fence = new Fence();
     return fence;
   }

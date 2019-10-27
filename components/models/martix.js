@@ -40,6 +40,21 @@ class Martix {
       } //i 行
     } //j 列
   }
+
+  /**
+   * 矩阵转置
+   * @returns {Array}
+   */
+  transpose() {
+    const desArr = [];
+    for (let j=0; j<this.colsNum; j++){
+      desArr[j] = [];
+      for (let i=0; i<this.rowsNum; i++){
+        desArr[j].push(this.m[i][j]);
+      }
+    }
+    return desArr;
+  }
 }
 
 export {

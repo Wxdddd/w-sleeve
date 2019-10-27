@@ -5,7 +5,19 @@
 
 class Fence {
 
+  specs;
   valueTitles = [];
+
+  constructor(specs) {
+    this.specs = specs;
+  }
+
+  init() {
+    const fence = [];
+    this.specs.forEach(p => {
+      this.pushValueTitle(p.value);
+    })
+  }
 
   pushValueTitle(title) {
     this.valueTitles.push(title);
