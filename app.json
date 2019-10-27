@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home/home",
-    "components/spu-scroll/index"
+    "components/spu-scroll/index",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

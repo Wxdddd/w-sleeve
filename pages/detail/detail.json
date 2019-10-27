@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "w-realm": "/components/realm/index"
+  }
+}

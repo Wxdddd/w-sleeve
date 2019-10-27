@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "w-fence": "/components/fence/index",
+    "l-counter": "/miniprogram_npm/lin-ui/counter/index"
+
+  }
+}
