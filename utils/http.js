@@ -1,5 +1,5 @@
 import {config} from "../config/config";
-import {promisic} from '../miniprogram_npm/lin-ui/utils/util.js'
+import {promisic} from "./util";
 
 class Http {
 

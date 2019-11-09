@@ -1,5 +1,6 @@
 // components/realm/index.js
 import {FenceGroup} from "../models/fence-group";
+import {Judger} from "../models/judger";
 
 Component({
   /**
@@ -33,6 +34,7 @@ Component({
       }
       const fenceGroup = new FenceGroup(spu);
       fenceGroup.initFences();
+      const judger = new Judger(fenceGroup);
       this.bindInitData(fenceGroup);
     }
   },
@@ -42,7 +44,6 @@ Component({
    */
   methods: {
     bindInitData(fenceGroup) {
-      console.log(fenceGroup)
       this.setData({
         fences: fenceGroup.fences
       });

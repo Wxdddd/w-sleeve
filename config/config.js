@@ -1,6 +1,6 @@
 // 配置项
 const config = {
-    appKey: "10pXNVzirskcJP5q",
+    appKey: "Lc9RmXCfAcf7kDpw",
     apiBaseUrl: "http://se.7yue.pro/v1/",
     home: {
       locationA: "t-1",
