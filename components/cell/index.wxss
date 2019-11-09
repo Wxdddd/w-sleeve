@@ -1,14 +1,36 @@
 
 .container {
+  height: 60rpx;
   border: 2rpx solid #333333;
+  padding: 2rpx;
+  box-sizing: border-box; /*改变核模型*/
 }
 
 .inner-container {
-  height: 60rpx;
+  height: 100%;
   padding-left: 15rpx;
   padding-right: 15rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: #ffffff;
+  font-size: 24rpx;
+}
+
+.forbidden {
+  border: 2rpx dashed #bbbbbb;
+  color: #bbbbbb;
+}
+
+.s-outer {
+  border: 2rpx solid #157658;
+  color: #bbbbbb;
+}
+
+.s-inner {
+  background-color: #157658;
+}
+
+.selected {
+  
 }
