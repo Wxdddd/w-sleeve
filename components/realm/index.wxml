@@ -4,7 +4,7 @@
         <image></image>
     </view>
     <block wx:for="{{fences}}" wx:key="{{index}}">
-        <w-fence bind:celltap="onCellTap" fence="{{item}}"></w-fence>
+        <w-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></w-fence>
     </block>
     <view class="counter-container">
 

@@ -28,7 +28,6 @@ class SkuCode {
             const newSegments = segments.map(seg=>{
                 return seg.join("#");
             }) ;
-            console.log(newSegments);
             this.totalSegments = this.totalSegments.concat(newSegments)
         }
     }

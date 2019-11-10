@@ -4,7 +4,9 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        cell: Object
+        cell: Object,
+        x: Number,   //行号
+        y: Number    //列号
     },
 
     /**
@@ -24,8 +26,10 @@ Component({
              * options 跨组件传递需要开启的属性
              */
             this.triggerEvent("celltap", {
-                cell: this.properties.cell
-            },{
+                cell: this.properties.cell,
+                x: this.properties.x,
+                y: this.properties.y
+            }, {
                 bubbles: true, //开启事件冒泡
                 composed: true  //跨越组件的边界
             });

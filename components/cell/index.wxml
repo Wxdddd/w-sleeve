@@ -7,7 +7,6 @@
 
 <wxs module="c">
     function statusStyle(status) {
-        status = "forbidden"
         if(status === "forbidden") {
             return {
                 outer: "forbidden",
