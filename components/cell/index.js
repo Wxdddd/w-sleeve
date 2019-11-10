@@ -17,9 +17,17 @@ Component({
      */
     methods: {
         onTap(event) {
-            // 向父组件传递数据
+            /**
+             * 向父组件(事件冒泡，fence不捕捉直接传递到realm中)传递数据
+             * celltap 传递事件名称
+             * detail 传递的数据
+             * options 跨组件传递需要开启的属性
+             */
             this.triggerEvent("celltap", {
-
+                cell: this.properties.cell
+            },{
+                bubbles: true, //开启事件冒泡
+                composed: true  //跨越组件的边界
             });
         }
     }
