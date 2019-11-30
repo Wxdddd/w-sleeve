@@ -2,6 +2,7 @@
 import {FenceGroup} from "../models/fence-group";
 import {Judger} from "../models/judger";
 import integer from "../../miniprogram_npm/lin-ui/common/async-validator/validator/integer";
+import {Spu} from "../../models/spu";
 
 Component({
     /**
@@ -21,7 +22,8 @@ Component({
         title: String,
         price: null,
         discountPrice: null,
-        stock: null
+        stock: null,
+        noSpec: false
     },
 
     /**
@@ -35,6 +37,14 @@ Component({
     observers: {
         'spu': function (spu) {
             if (!spu) {
+                return;
+            }
+            // 无规格判断
+            if (Spu.isNoSpec(spu)) {
+                this.setData({
+                    noSpec: true
+                });
+                this.bindSkuData(spu.sku_list[0]);
                 return;
             }
             const fenceGroup = new FenceGroup(spu);

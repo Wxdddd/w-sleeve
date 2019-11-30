@@ -49,6 +49,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
@@ -57,6 +61,13 @@
 					"name": "pages/detail/detail",
 					"pathName": "pages/detail/detail",
 					"query": "pid=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "无规格",
+					"pathName": "pages/detail/detail",
+					"query": "pid=11",
 					"scene": null
 				}
 			]
