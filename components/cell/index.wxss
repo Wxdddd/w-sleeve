@@ -1,36 +1,44 @@
+/* components/cell/index.wxss */
 
-.container {
+.container{
   height: 60rpx;
-  border: 2rpx solid #333333;
-  padding: 2rpx;
-  box-sizing: border-box; /*改变核模型*/
+  border:2rpx solid #333333;
+  padding:2rpx;
+  box-sizing: border-box;
 }
 
-.inner-container {
+.inner-container{
   height: 100%;
   padding-left: 15rpx;
   padding-right: 15rpx;
-  display: flex;
-  flex-direction: row;
+  display:flex;
+  flex-direction:row;
   align-items: center;
   background-color: #ffffff;
-  font-size: 24rpx;
+  font-size:24rpx;
 }
 
-.forbidden {
+.forbidden{
   border: 2rpx dashed #bbbbbb;
   color: #bbbbbb;
 }
 
-.s-outer {
+.s-outer{
   border: 2rpx solid #157658;
-  color: #bbbbbb;
+  color: #ffffff;
 }
 
-.s-inner {
+.s-inner{
   background-color: #157658;
 }
 
-.selected {
-  
+.img{
+  display: flex;
+  width:44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+
+.selected{
+
 }

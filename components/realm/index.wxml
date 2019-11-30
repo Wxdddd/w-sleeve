@@ -1,8 +1,30 @@
 
 <view class="container">
     <view>
-        <image></image>
+        <image class="sku-img"></image>
+        <view class="sku-description">
+            <text class="title">测试SKU</text>
+            <view>
+                <view class="price-row">
+                    <w-price autofix
+                             value="777"
+                             color="#157658"
+                             value-size="28"></w-price>
+                    <w-price deleted
+                             value="999"
+                             l-class="discount-price"
+                             color="#999999"
+                             size="26"></w-price>
+                </view>
+                <view class="sku-pending">
+                    <text>请选择：</text>
+                </view>
+            </view>
+        </view>
     </view>
+
+    <view class="hr"></view>
+
     <block wx:for="{{fences}}" wx:key="{{index}}">
         <w-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></w-fence>
     </block>

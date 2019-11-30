@@ -6,9 +6,9 @@ import {combination} from "../../utils/util";
 
 class SkuCode {
 
-    code
-    spuId
-    totalSegments = []
+    code;
+    spuId;
+    totalSegments = [];
 
     constructor(code) {
         this.code = code;
@@ -27,7 +27,7 @@ class SkuCode {
             const segments = combination(specCodeArray, i);//sku规格进行排列组合
             const newSegments = segments.map(seg=>{
                 return seg.join("#");
-            }) ;
+            });
             this.totalSegments = this.totalSegments.concat(newSegments)
         }
     }

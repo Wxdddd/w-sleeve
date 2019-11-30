@@ -21,7 +21,7 @@
                      value="{{p.mainPrice(data.price,data.discount_price).price}}"></w-price>
 
             <w-price l-class="discount-price"
-                    color="#999999"
+                     color="#999999"
                      size="26"
                      wx:if="{{p.slashedPrice(data.price,data.discount_price).display}}"
                      deleted value="{{p.slashedPrice(data.price,data.discount_price).price}}"></w-price>
