@@ -6,6 +6,7 @@ import {SkuCode} from "./sku-code";
 import {CellStatus} from "../../core/enum";
 import {SkuPending} from "./sku-pending";
 import {Joiner} from "../../utils/joiner";
+import {FenceGroup} from "./fence-group";
 
 class Judger {
 
@@ -30,7 +31,8 @@ class Judger {
     }
 
     _initSkuPending() {
-        this.SkuPending = new SkuPending();
+        const specaLength = this.fenceGroup.fences.length;
+        this.SkuPending = new SkuPending(specaLength);
         // 获取默认sku
         const defaultSku = this.fenceGroup.getDefaultSku();
         if (!defaultSku) {
@@ -41,6 +43,11 @@ class Judger {
         this._initDefaultSelectedCell();
         // 更改其他规格的状态
         this.judge(null, null, null, true);
+    }
+
+    isSkuIntact() {
+        console.log( this.SkuPending.isIntact())
+        return this.SkuPending.isIntact();
     }
 
     /**

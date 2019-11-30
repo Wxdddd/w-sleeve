@@ -23,7 +23,8 @@ Component({
         price: null,
         discountPrice: null,
         stock: null,
-        noSpec: false
+        noSpec: false,
+        skuIntact: true
     },
 
     /**
@@ -42,7 +43,7 @@ Component({
             // 无规格判断
             if (Spu.isNoSpec(spu)) {
                 this.setData({
-                    noSpec: true
+                    noSpec: true,
                 });
                 this.bindSkuData(spu.sku_list[0]);
                 return;
@@ -89,7 +90,8 @@ Component({
 
         bindInitData(fenceGroup) {
             this.setData({
-                fences: fenceGroup.fences
+                fences: fenceGroup.fences,
+                skuIntact: this.data.judger.isSkuIntact()
             });
         },
 

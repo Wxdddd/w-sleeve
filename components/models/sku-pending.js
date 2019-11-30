@@ -1,15 +1,16 @@
+import {Cell} from "./cell";
+
 /**
  * 已选中cell
  * @auth winn
  * @date 2019/11/10 12:00 PM
  */
-import {Cell} from "./cell";
-
 class SkuPending {
     pending = [];
+    size;
 
-    constructor() {
-
+    constructor(size) {
+        this.size = size;
     }
 
     init(sku) {
@@ -17,6 +18,25 @@ class SkuPending {
             const cell = new Cell(sku.specs[i]);
             this.insertCell(cell, i);
         }
+    }
+
+    /**
+     * 是否选中完整的sku
+     */
+    isIntact() {
+        if (this.size !== this.pending.length) {
+            return false;
+        }
+        for (let i = 0; i < this.size; i++) {
+            if (this._isEmptyPart(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    _isEmptyPart(index) {
+        return !this.pending[index];
     }
 
     // x 行号 不能重复
