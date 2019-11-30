@@ -42,24 +42,10 @@ Component({
             }
             // 无规格判断
             if (Spu.isNoSpec(spu)) {
-                this.setData({
-                    noSpec: true,
-                });
-                this.bindSkuData(spu.sku_list[0]);
-                return;
-            }
-            const fenceGroup = new FenceGroup(spu);
-            fenceGroup.initFences();
-            const judger = new Judger(fenceGroup);
-            this.data.judger = judger;
-            const defaultSku = fenceGroup.getDefaultSku();
-            if (defaultSku) {
-                this.bindSkuData(defaultSku);
+                this.processNoSpec(spu);
             } else {
-                this.bindSpuData();
+                this.processHasSpec(spu);
             }
-
-            this.bindInitData(fenceGroup);
         }
     },
 
@@ -68,8 +54,29 @@ Component({
      */
     methods: {
 
-        bindSpuData() {
-            const spu = this.properties.spu;
+        processNoSpec(spu) {
+            this.setData({
+                noSpec: true,
+            });
+            this.bindSkuData(spu.sku_list[0]);
+        },
+
+        processHasSpec(spu) {
+            const fenceGroup = new FenceGroup(spu);
+            fenceGroup.initFences();
+            const judger = new Judger(fenceGroup);
+            this.data.judger = judger;
+            const defaultSku = fenceGroup.getDefaultSku();
+            if (defaultSku) {
+                this.bindSkuData(defaultSku);
+            } else {
+                this.bindSpuData(spu);
+            }
+            this.bindTipData();
+            this.bindFenceGroupData(fenceGroup);
+        },
+
+        bindSpuData(spu) {
             this.setData({
                 previewImage: spu.img,
                 title: spu.title,
@@ -88,10 +95,15 @@ Component({
             });
         },
 
-        bindInitData(fenceGroup) {
+        bindTipData() {
             this.setData({
-                fences: fenceGroup.fences,
-                skuIntact: this.data.judger.isSkuIntact()
+                skuIntact:this.data.judger.isSkuIntact()
+            })
+        },
+
+        bindFenceGroupData(fenceGroup) {
+            this.setData({
+                fences: fenceGroup.fences
             });
         },
 
@@ -101,9 +113,7 @@ Component({
             const y = event.detail.y;
             const judger = this.data.judger;
             judger.judge(cell, x, y);
-            this.setData({
-                fences: judger.fenceGroup.fences
-            });
+            this.bindFenceGroupData(this.judger.fenceGroup);
         }
     }
 })

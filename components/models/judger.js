@@ -46,7 +46,6 @@ class Judger {
     }
 
     isSkuIntact() {
-        console.log( this.SkuPending.isIntact())
         return this.SkuPending.isIntact();
     }
 
