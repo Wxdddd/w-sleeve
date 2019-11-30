@@ -26,6 +26,7 @@
     <view class="hr"></view>
 
     <block wx:for="{{fences}}" wx:key="{{index}}">
+        <!-- bind:celltap 监听（捕捉）子组件传递的事件 -->
         <w-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></w-fence>
     </block>
     <view class="counter-container">

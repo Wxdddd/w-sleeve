@@ -35,6 +35,7 @@ Component({
             fenceGroup.initFences();
             const judger = new Judger(fenceGroup);
             this.data.judger = judger;
+
             this.bindInitData(fenceGroup);
         }
     },

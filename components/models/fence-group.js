@@ -22,6 +22,40 @@ class FenceGroup {
     }
 
     /**
+     * 获取默认sku
+     */
+    getDefaultSku() {
+        const defaultSkuId = this.spu.default_sku_id;
+        if (!defaultSkuId) {
+            return;
+        }
+        return this.skuList.find(s => s.id === defaultSkuId);
+    }
+
+    /**
+     * 通过规格id改变规格状态
+     * @param cellId
+     * @param status
+     */
+    setCellStatusById(cellId, status) {
+        this.eachCell((cell) => {
+            if (cell.id === cellId) {
+                cell.status = status;
+            }
+        });
+    }
+
+    /**
+     * 通过行列号改变规格状态
+     * @param x
+     * @param y
+     * @param status
+     */
+    setCellStatusByXY(x, y, status) {
+        this.fences[x].cells[y].status = status;
+    }
+
+    /**
      * matrix 数组 实例并不是真正的格式
      * 金属灰 七龙珠 小号S
      * 青芒色 灌篮高手 中号M

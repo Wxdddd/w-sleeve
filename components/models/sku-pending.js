@@ -3,12 +3,20 @@
  * @auth winn
  * @date 2019/11/10 12:00 PM
  */
+import {Cell} from "./cell";
 
 class SkuPending {
     pending = [];
 
     constructor() {
 
+    }
+
+    init(sku) {
+        for (let i = 0; i < sku.specs.length; i++) {
+            const cell = new Cell(sku.specs[i]);
+            this.insertCell(cell, i);
+        }
     }
 
     // x 行号 不能重复
