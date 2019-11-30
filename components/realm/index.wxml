@@ -1,21 +1,29 @@
 
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
+
 <view class="container">
-    <view>
-        <image class="sku-img"></image>
+    <view class="sku-preview">
+        <image class="sku-img" src="{{previewImage}}"></image>
         <view class="sku-description">
-            <text class="title">测试SKU</text>
+            <text class="title">{{title}}</text>
             <view>
                 <view class="price-row">
                     <w-price autofix
-                             value="777"
+                             value="{{p.mainPrice(price,discountPrice).price}}"
                              color="#157658"
                              value-size="28"></w-price>
                     <w-price deleted
-                             value="999"
+                             wx:if="{{p.slashedPrice(price,discountPrice).display}}"
+                             value="{{p.slashedPrice(price,discountPrice).price}}"
                              l-class="discount-price"
                              color="#999999"
                              size="26"></w-price>
+
+                    <view wx:if="{{stock && stock >= 10}}" class="stock">库存：{{stock}} 件</view>
+                    <view wx:if="{{stock && stock < 10 && stock != 0}}" class="stock-pinch">仅剩：{{stock}} 件</view>
+
                 </view>
+
                 <view class="sku-pending">
                     <text>请选择：</text>
                 </view>
