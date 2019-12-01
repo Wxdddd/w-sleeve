@@ -12,7 +12,7 @@ class Judger {
 
     fenceGroup;
     pathDict = [];//所有路径
-    SkuPending;
+    skuPending;
 
     constructor(fenceGroup) {
         this.fenceGroup = fenceGroup;
@@ -32,22 +32,58 @@ class Judger {
 
     _initSkuPending() {
         const specaLength = this.fenceGroup.fences.length;
-        this.SkuPending = new SkuPending(specaLength);
+        this.skuPending = new SkuPending(specaLength);
         // 获取默认sku
         const defaultSku = this.fenceGroup.getDefaultSku();
         if (!defaultSku) {
             return;
         }
         // 初始化默认选中的规格
-        this.SkuPending.init(defaultSku);
+        this.skuPending.init(defaultSku);
         this._initDefaultSelectedCell();
         // 更改其他规格的状态
         this.judge(null, null, null, true);
     }
 
     isSkuIntact() {
-        return this.SkuPending.isIntact();
+        return this.skuPending.isIntact();
     }
+
+    getCurrentValues() {
+        return this.skuPending.getCurrentSpecValues();
+    }
+
+    getMissingKeys() {
+        const missingKeysIndex = this.skuPending.getMissingSpecKeysIndex();
+        return missingKeysIndex.map(i => {
+            return this.fenceGroup.getFenceTitle(i);
+        })
+    }
+
+    getDeterminateSku() {
+        const code = this.skuPending.getSkuCode();
+        const sku = this.fenceGroup.getSku(code);
+        return sku;
+    }
+
+    /*getCurrentValues() {
+        const specs = this.skuPending.pending;
+        let selectSpecNames = [];
+        console.log(specs);
+        console.log(this.fenceGroup.fences)
+        const isSkuIntact = this.isSkuIntact();
+        if (isSkuIntact) {
+            specs.forEach(s => {selectSpecNames.push(s.title)})
+        }else {
+            specs.forEach(s => {
+                const isNoSelectSpec = this.fenceGroup.fences.some(f => {return f.id === s.id})
+                if (!isNoSelectSpec) {
+                    selectSpecNames.push(f.title)
+                }
+            })
+        }
+        return selectSpecNames.splice(",");
+    }*/
 
     /**
      * 初始化默认规格状态
@@ -55,7 +91,7 @@ class Judger {
      * @private
      */
     _initDefaultSelectedCell() {
-        this.SkuPending.pending.forEach(cell => {
+        this.skuPending.pending.forEach(cell => {
             this.fenceGroup.setCellStatusById(cell.id, CellStatus.SELECTED);
         });
     }
@@ -66,7 +102,7 @@ class Judger {
         }
         // 处理其他cell 遍历所有cell（规格） 再遍历fence（每一行）
         this.fenceGroup.eachCell((cell, x, y) => {
-            if (this.SkuPending.isSelected(cell, x)) { //不处理已选中的cell
+            if (this.skuPending.isSelected(cell, x)) { //不处理已选中的cell
                 return;
             }
             const path = this._findPotentialPath(cell, x, y);
@@ -90,7 +126,7 @@ class Judger {
     _findPotentialPath(cell, x, y) {
         const joiner = new Joiner("#");
         for (let i = 0; i < this.fenceGroup.fences.length; i++) {
-            const selected = this.SkuPending.findSelectedCellByX(i); //当前行是否有选中的
+            const selected = this.skuPending.findSelectedCellByX(i); //当前行是否有选中的
             if (x === i) { //当前行 直接添加
                 const cellCode = this._getCellCode(cell.spec);
                 joiner.join(cellCode);
@@ -118,11 +154,11 @@ class Judger {
     _changeCurrentCellStatus(cell, x, y) {
         if (cell.status === CellStatus.WAITING) {
             this.fenceGroup.setCellStatusByXY(x, y, CellStatus.SELECTED);
-            this.SkuPending.insertCell(cell, x);
+            this.skuPending.insertCell(cell, x);
         }
         if (cell.status === CellStatus.SELECTED) {
             this.fenceGroup.setCellStatusByXY(x, y, CellStatus.WAITING);
-            this.SkuPending.removeCell(x);
+            this.skuPending.removeCell(x);
         }
     }
 }

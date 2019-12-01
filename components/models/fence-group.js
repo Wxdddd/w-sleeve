@@ -32,6 +32,16 @@ class FenceGroup {
         return this.skuList.find(s => s.id === defaultSkuId);
     }
 
+    getSku(skuCode) {
+        const fullSkuCode = this.spu.id + "$" + skuCode;
+        const sku = this.skuList.find(sku => sku.code === fullSkuCode);
+        return sku ? sku : "";
+    }
+
+    getFenceTitle(index) {
+        return this.fences[index].title;
+    }
+
     /**
      * 通过规格id改变规格状态
      * @param cellId

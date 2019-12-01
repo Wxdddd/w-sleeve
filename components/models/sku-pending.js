@@ -1,4 +1,5 @@
 import {Cell} from "./cell";
+import {Joiner} from "../../utils/joiner";
 
 /**
  * 已选中cell
@@ -18,6 +19,38 @@ class SkuPending {
             const cell = new Cell(sku.specs[i]);
             this.insertCell(cell, i);
         }
+    }
+
+    /**
+     * 获取已选规格值
+     */
+    getCurrentSpecValues() {
+        const values = this.pending.map(cell => {
+            return cell ? cell.spec.value : null;
+        })
+        return values;
+    }
+
+    /**
+     * 获取未选规格名序号
+     */
+    getMissingSpecKeysIndex() {
+        const keysIndex = [];
+        for (let i = 0; i <this.size; i++) {
+            if (!this.pending[i]) {
+                keysIndex.push(i);
+            }
+        }
+        return keysIndex;
+    }
+
+    getSkuCode() {
+        const joiner = new Joiner("#");
+        this.pending.forEach(cell => {
+            const cellCode = cell.getCellCode();
+            joiner.join(cellCode);
+        })
+        return joiner.getStr();
     }
 
     /**

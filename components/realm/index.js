@@ -1,8 +1,8 @@
 // components/realm/index.js
 import {FenceGroup} from "../models/fence-group";
 import {Judger} from "../models/judger";
-import integer from "../../miniprogram_npm/lin-ui/common/async-validator/validator/integer";
 import {Spu} from "../../models/spu";
+import {Cell} from "../models/cell";
 
 Component({
     /**
@@ -24,7 +24,9 @@ Component({
         discountPrice: null,
         stock: null,
         noSpec: false,
-        skuIntact: true
+        skuIntact: true,
+        currentValues: [],
+        missingKeys: []
     },
 
     /**
@@ -97,7 +99,9 @@ Component({
 
         bindTipData() {
             this.setData({
-                skuIntact:this.data.judger.isSkuIntact()
+                skuIntact: this.data.judger.isSkuIntact(),
+                currentValues: this.data.judger.getCurrentValues(),
+                missingKeys: this.data.judger.getMissingKeys()
             })
         },
 
@@ -108,12 +112,22 @@ Component({
         },
 
         onCellTap(event) {
-            const cell = event.detail.cell;
+            const data = event.detail.cell;
             const x = event.detail.x;
             const y = event.detail.y;
+
+            const cell = new Cell(data.spec);
+            cell.status = data.status;
+
             const judger = this.data.judger;
             judger.judge(cell, x, y);
-            this.bindFenceGroupData(this.judger.fenceGroup);
+            const isSkuIntact = judger.isSkuIntact();
+            if (isSkuIntact) {
+                const currentSku = judger.getDeterminateSku();
+                this.bindSkuData(currentSku);
+            }
+            this.bindTipData();
+            this.bindFenceGroupData(judger.fenceGroup);
         }
     }
 })
