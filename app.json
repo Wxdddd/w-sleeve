@@ -19,6 +19,7 @@
     "w-spu-preview": "/components/spu-preview/index",
     "w-tag": "/miniprogram_npm/lin-ui/tag/index",
     "w-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
+    "w-icon": "/miniprogram_npm/lin-ui/icon/index",
     "w-counter": "/miniprogram_npm/lin-ui/counter/index",
     "x-counter": "/components/counter/index"
   }

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "w-realm": "/components/realm/index"
+    "w-realm": "/components/realm/index",
+    "w-tap-bar": "/components/tap-bar/index"
   }
 }

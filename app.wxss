@@ -1,5 +1,28 @@
 /*全局背景颜色设置*/
 
 page {
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
+}
+
+@font-face {
+    font-family: 'sleeve';  /* project id 1539191 */
+    src: url('//at.alicdn.com/t/font_1539191_l82kdsi2po.eot');
+    src: url('//at.alicdn.com/t/font_1539191_l82kdsi2po.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1539191_l82kdsi2po.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1539191_l82kdsi2po.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1539191_l82kdsi2po.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1539191_l82kdsi2po.svg#sleeve') format('svg');
+}
+
+.sleeve {
+     font-family: sleeve !important;
+     color:#157658 !important;
+ }
+
+.l-icon-home:before {
+    content: "\e64f";
+}
+
+.l-icon-spcart:before {
+    content: "\e63f";
 }

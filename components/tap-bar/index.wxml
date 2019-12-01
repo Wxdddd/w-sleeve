@@ -1,0 +1,20 @@
+<view class="container">
+
+    <view class="icons">
+        <view bind:tap="onGoToHome">
+            <w-icon size="46" name="home" l-class="sleeve"></w-icon>
+        </view>
+
+        <view bind:tap="onGoToCart">
+            <w-icon size="46" name="spcart" l-class="sleeve"></w-icon>
+        </view>
+    </view>
+
+    <view bind:tap="onAddToCart" class="cart btn-font">
+        <text></text>
+    </view>
+
+    <view bind:tap="onBuy" class="buy btn-font">
+        <text></text>
+    </view>
+</view>

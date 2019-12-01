@@ -1,2 +1,3 @@
 
-<w-realm spu="{{spu}}"></w-realm>˚
+<!--<w-realm spu="{{spu}}"></w-realm>-->
+<w-tap-bar></w-tap-bar>
