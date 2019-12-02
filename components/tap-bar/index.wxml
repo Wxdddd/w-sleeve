@@ -3,18 +3,22 @@
     <view class="icons">
         <view bind:tap="onGoToHome">
             <w-icon size="46" name="home" l-class="sleeve"></w-icon>
+            <text>首页</text>
         </view>
 
         <view bind:tap="onGoToCart">
-            <w-icon size="46" name="spcart" l-class="sleeve"></w-icon>
+            <w-badge value="7777">
+                <w-icon size="46" name="spcart" l-class="sleeve"></w-icon>
+            </w-badge>
+            <text>购物车</text>
         </view>
     </view>
 
     <view bind:tap="onAddToCart" class="cart btn-font">
-        <text></text>
+        <text>加入购物车</text>
     </view>
 
     <view bind:tap="onBuy" class="buy btn-font">
-        <text></text>
+        <text>立即购买</text>
     </view>
 </view>

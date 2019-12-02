@@ -1,3 +1,11 @@
 
-<!--<w-realm spu="{{spu}}"></w-realm>-->
-<w-tap-bar></w-tap-bar>
+<w-popup show="{{showRealm}}" content-align="bottom">
+    <w-realm spu="{{spu}}" order-way="{{orderWay}}"></w-realm>
+</w-popup>
+
+<w-tap-bar class="tapbar"
+           bind:gotohome="onGotoHome"
+           bind:gotocart="onGotoCart"
+           bind:addtocart="onAddToCart"
+           bind:buy="onBuy"
+></w-tap-bar>

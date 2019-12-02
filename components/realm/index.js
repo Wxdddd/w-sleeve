@@ -10,7 +10,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        spu: Object
+        spu: Object,
+        orderWay: String //用于判断加入购物车或立即购买
     },
 
     /**
