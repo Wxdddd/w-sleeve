@@ -1,41 +1,40 @@
-
 /**
  * 主价格
  * @param price
  */
-function mainPrice(price,discountPrice) {
-  if (!discountPrice) {
-    return {
-      price: price,
-      display: true
-    };
-  } else {
-    return {
-      price: discountPrice,
-      display: false
+function mainPrice(price, discountPrice) {
+    if (!discountPrice) {
+        return {
+            price: price,
+            display: true
+        };
+    } else {
+        return {
+            price: discountPrice,
+            display: true
+        }
     }
-  }
 }
 
 /**
  * 划线价格
  * @param price
  */
-function slashedPrice(price,discountPrice) {
-  if (discountPrice) {
-    return {
-      price:price,
-      display: true
-    };
-  } else {
-    return {
-      display: false,
-      price: null
-    };
-  }
+function slashedPrice(price, discountPrice) {
+    if (discountPrice) {
+        return {
+            price: price,
+            display: true
+        };
+    } else {
+        return {
+            display: false,
+            price: null
+        };
+    }
 }
 
 module.exports = {
-  mainPrice: mainPrice,
-  slashedPrice: slashedPrice
+    mainPrice: mainPrice,
+    slashedPrice: slashedPrice
 }
