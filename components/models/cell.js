@@ -9,7 +9,8 @@ class Cell {
     title;
     id;
     status = CellStatus.WAITING;
-    spec
+    spec;
+    skuImg;
 
     constructor(spec) {
         this.title = spec.value;

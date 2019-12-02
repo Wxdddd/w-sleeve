@@ -97,9 +97,38 @@ class FenceGroup {
         AT.forEach(r => {
             const fence = new Fence(r);
             fence.init();
+            this._setFenceSketch(fence);
             fences.push(fence);
         });
         this.fences = fences;
+    }
+
+    /**
+     * 可视规格赋值
+     * @param fence
+     * @private
+     */
+    _setFenceSketch(fence) {
+        if (this._hasSketchFence() && this._isSketchFence(fence.id)) {
+            fence.setFenceSketch(this.skuList);
+        }
+    }
+
+    /**
+     * 当前spu是否有可式规格
+     * @returns {boolean}
+     * @private
+     */
+    _hasSketchFence() {
+        return this.spu.sketch_spec_id ? true : false
+    }
+
+    /**
+     * 当前规格是否是可视规格
+     * @private
+     */
+    _isSketchFence(fenceId) {
+        return this.spu.sketch_spec_id === fenceId ? true : false;
     }
 
     eachCell(cb) {
