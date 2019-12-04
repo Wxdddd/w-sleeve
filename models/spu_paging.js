@@ -1,4 +1,4 @@
-import {Paging} from "../utils/Paging";
+import {Paging} from "../utils/paging";
 import {Http} from "../utils/http";
 
 class SpuPaging {
