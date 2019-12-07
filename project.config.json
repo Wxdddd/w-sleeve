@@ -69,6 +69,13 @@
 					"pathName": "pages/detail/detail",
 					"query": "pid=11",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/category/category",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

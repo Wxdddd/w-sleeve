@@ -1,2 +1,42 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="container">
+    <view class="search-container">
+        <w-button
+                width="710"
+                height="60"
+                icon="research"
+                icon-size="24"
+                icon-color="#C4C9D2"
+                l-class="search-btn"
+                bind:lintap="onGotoSearch"
+                shape="square">
+            搜索商品
+        </w-button>
+    </view>
+    <view class="main">
+        <w-segment
+                height="{{segHeight}}"
+                item-height="90"
+                even="{{false}}"
+                width="160"
+                l-active-class="segment-item-active"
+                l-inactive-class="segment-item"
+                l-line-class="l-seg-line"
+                placement="left">
+            <w-segment-item key="1" tab="唐门"></w-segment-item>
+            <w-segment-item key="2" tab="长歌"></w-segment-item>
+            <w-segment-item key="3" tab="七秀"></w-segment-item>
+            <w-segment-item key="4" tab="纯阳"></w-segment-item>
+            <w-segment-item key="5" tab="万花"></w-segment-item>
+            <w-segment-item key="6" tab="蓬莱"></w-segment-item>
+            <w-segment-item key="7" tab="凌雪阁"></w-segment-item>
+            <w-segment-item key="8" tab="苍云"></w-segment-item>
+            <w-segment-item key="9" tab="天策"></w-segment-item>
+            <w-segment-item key="10" tab="丐帮"></w-segment-item>
+            <w-segment-item key="11" tab="七秀"></w-segment-item>
+            <w-segment-item key="12" tab="藏剑"></w-segment-item>
+            <w-segment-item key="13" tab="五毒"></w-segment-item>
+            <w-segment-item key="14" tab="阴阳"></w-segment-item>
+        </w-segment>
+        <view></view>
+    </view>
+</view>
