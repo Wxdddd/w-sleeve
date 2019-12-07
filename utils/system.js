@@ -3,6 +3,7 @@
  * @date 2019/12/7 2:17 PM
  */
 import {promisic} from "./util";
+import {px2rpx} from "../miniprogram_npm/lin-ui/utils/util";
 
 /**
  * 动态计算窗口高度
@@ -18,6 +19,12 @@ const getSystemSize = async function () {
     }
 }
 
+const getWindowHeight = async function() {
+    const res = await getSystemSize();
+    return px2rpx(res.windowHeight);
+}
+
 export {
-    getSystemSize
+    getSystemSize,
+    getWindowHeight
 }

@@ -45,7 +45,7 @@
 }
 
 .detail-img-container{
-    margin-bottom: 130rpx;
+    /*margin-bottom: 130rpx;*/
 }
 
 .detail-img{

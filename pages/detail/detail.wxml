@@ -1,4 +1,4 @@
-<view>
+<scroll-view style="height:{{h}}rpx;" scroll-y>
     <swiper class="top"
             autoplay
             indicator-dots>
@@ -33,7 +33,7 @@
         </block>
     </view>
 
-</view>
+</scroll-view>
 
 <w-popup show="{{showRealm}}" content-align="bottom">
     <w-realm bind:specchange="onSpecChange" spu="{{spu}}" order-way="{{orderWay}}"></w-realm>
