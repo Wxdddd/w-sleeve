@@ -52,6 +52,7 @@ Component({
             } else {
                 this.processHasSpec(spu);
             }
+            this.triggerSpecEvent();
         }
     },
 
@@ -127,7 +128,7 @@ Component({
             const currentCount = event.detail.count;
             this.data.currentSkuCount = currentCount;
 
-            if(this.data.judger.isSkuIntact()){
+            if (this.data.judger.isSkuIntact()) {
                 const sku = this.data.judger.getDeterminateSku();
                 this.setOutStockStatus(sku.stock, currentCount)
             }
@@ -147,10 +148,31 @@ Component({
             if (isSkuIntact) {
                 const currentSku = judger.getDeterminateSku();
                 this.bindSkuData(currentSku);
-                this.setOutStockStatus(currentSku.stock,this.data.currentSkuCount);
+                this.setOutStockStatus(currentSku.stock, this.data.currentSkuCount);
             }
             this.bindTipData();
             this.bindFenceGroupData(judger.fenceGroup);
+            this.triggerSpecEvent();
+        },
+
+        /**
+         * 事件传递 - spu详情已选择，请选择
+         */
+        triggerSpecEvent() {
+            const noSpec = Spu.isNoSpec(this.properties.spu);
+            if (noSpec) {
+                this.triggerEvent('specchange', {
+                    noSpec
+                })
+            }
+            else {
+                this.triggerEvent('specchange', {
+                    noSpec: Spu.isNoSpec(this.properties.spu),
+                    skuIntact: this.data.judger.isSkuIntact(),
+                    currentValues: this.data.judger.getCurrentValues(),
+                    missingKeys: this.data.judger.getMissingKeys()
+                })
+            }
         }
     }
 })

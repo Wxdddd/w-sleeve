@@ -1,6 +1,7 @@
 // pages/detail/detail.js
 import {Spu} from "../../models/spu";
 import {ShoppingWay} from "../../core/enum";
+import {SaleExplain} from "../../models/sale-explain";
 
 Page({
 
@@ -10,7 +11,9 @@ Page({
     data: {
         spu: null,
         showRealm: false,
-        orderWay: String
+        orderWay: String,
+        specs: Object,
+        explain: []
     },
 
     /**
@@ -19,8 +22,10 @@ Page({
     onLoad: async function (options) {
         const pid = options.pid;
         const spu = await Spu.getDetail(pid);
+        const explain = await SaleExplain.getFixed();
         this.setData({
-            spu
+            spu,
+            explain
         })
     },
 
@@ -47,6 +52,12 @@ Page({
     onGotoCart(event) {
         wx.switchTab({
             url: "/pages/cart/cart"
+        })
+    },
+
+    onSpecChange(event) {
+        this.setData({
+            specs:event.detail
         })
     },
 

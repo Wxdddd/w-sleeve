@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "w-realm": "/components/realm/index",
-    "w-tap-bar": "/components/tap-bar/index"
+    "w-tap-bar": "/components/tap-bar/index",
+    "w-spu-description": "/components/spu-description/index",
+    "w-sale-explain": "/components/sale-explain/index"
   }
 }

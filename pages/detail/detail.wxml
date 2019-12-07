@@ -1,6 +1,42 @@
+<view>
+    <swiper class="top"
+            autoplay
+            indicator-dots>
+        <block wx:for="{{spu.spu_img_list}}" wx:key="{{index}}">
+            <swiper-item>
+                <image class="top" mode="aspectFill" src="{{item.img}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <w-spu-description spu="{{spu}}"></w-spu-description>
+
+    <view bind:tap="onAddToCart" wx:if="{{!specs.noSpec}}" class="sku-pending">
+        <view class="specs">
+            <text wx:if="{{!specs.skuIntact}}">请选择：</text>
+            <text wx:else>已选：</text>
+            <text wx:if="{{!specs.skuIntact}}">{{specs.missingKeys}}</text>
+            <text wx:else>{{specs.currentValues}}</text>
+        </view>
+        <view class="arrow-right">
+            <l-icon name="right" color="#157658" size="24"></l-icon>
+        </view>
+    </view>
+
+    <view class="explain">
+        <w-sale-explain texts="{{explain}}"></w-sale-explain>
+    </view>
+
+    <view class="detail-img-container">
+        <block wx:for="{{spu.spu_detail_img_list}}" wx:key="{{index}}">
+            <image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
+        </block>
+    </view>
+
+</view>
 
 <w-popup show="{{showRealm}}" content-align="bottom">
-    <w-realm spu="{{spu}}" order-way="{{orderWay}}"></w-realm>
+    <w-realm bind:specchange="onSpecChange" spu="{{spu}}" order-way="{{orderWay}}"></w-realm>
 </w-popup>
 
 <w-tap-bar class="tapbar"
